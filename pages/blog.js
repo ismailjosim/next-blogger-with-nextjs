@@ -1,40 +1,32 @@
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import styles from '../styles/blog.module.css'
 
 const Blog = () => {
+    const [blogs, setBlogs] = useState([])
+
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/blogs')
+            .then(res => res.json())
+            .then(data => setBlogs(data))
+
+    }, [])
+
 
 
     return (
         <div className={styles.all_blogs}>
-            <div className={styles.blog_item}>
-                <h3>
-                    <Link href='/blogs/dynamic blog post one'>Welcome to blog 01</Link>
-                </h3>
-            </div>
-            <div className={styles.blog_item}>
-                <h3>
-                    <Link href='/blogs/dynamic blog post Two'>Welcome to blog 02</Link>
-                </h3>
-            </div>
-            <div className={styles.blog_item}>
-                <h3>
-                    <Link href='/blogs/dynamic blog post Three'>Welcome to blog 03</Link>
-                </h3>
-            </div>
-            <div className={styles.blog_item}>
-                <h3>
-                    <Link href='/blogs/dynamic blog post Four'>Welcome to blog 04</Link>
-                </h3>
-            </div>
-            <div className={styles.blog_item}>
-                <h3>
-                    <Link href='/blogs/dynamic blog post Five'>Welcome to blog 05</Link>
-                </h3>
-            </div>
+            {
+                blogs.map((blog, idx) => <div key={idx} className={styles.blog_item}>
+                    <h3>
+                        <Link href={`/blogs/${ blog.slug }`}>{blog.title}</Link>
+                    </h3>
+                </div>
+                )
+            }
         </div>
-
-
     )
 }
 
