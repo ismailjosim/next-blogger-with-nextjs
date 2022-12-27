@@ -1,0 +1,26 @@
+adding globals css:
+==================>
+1. if want to load our css file to any of our file then we have to add that file into _app.js file.
+2. but if we want to use only for one file then just use them as module. example:
+(home.module.css)
+
+Use style JSX:
+==================>
+* What is style JSX: to add css in a particular Component.
+* to use:
+<style jsx>
+{`
+
+    .mytext{
+color: red;
+    }
+    `
+ }
+</style>
+<span className="mytext">
+Hello
+</span>
+
+
+Use style JSX:
+============>
