@@ -24,3 +24,16 @@ Hello
 
 Use style JSX:
 ============>
+
+
+create dynamic route and created dynamic blog:
+============================================>
+
+Get json file data:
+============================================>
+step 01: collect all the files from directory.
+step 02: display them.
+        1. find file corresponding to the slug
+
+============================================>
+in api it also have file-base routing
